@@ -77,12 +77,12 @@ if replace:
 	# Retreive Server Logs Via SFTP
 	cnopts = pysftp.CnOpts(knownhosts='known_hosts')
 
-	with pysftp.Connection(host='parkland.phxcdn.com',username='root',password='Support@727AVT',cnopts=cnopts) as sftp:
+	with pysftp.Connection(host='%%% SERVER DNS OR IP HERE %%%',username='root',password='%%% PASSWORD HERE %%%',cnopts=cnopts) as sftp:
 		sftp.get('/root/.pm2/logs/app-out.log')
 		if os.path.isfile('server1.log'):
 			os.remove('server1.log')
 		os.rename('app-out.log','server1.log')
-	with pysftp.Connection(host='parkland2.phxcdn.com',username='root',password='Support@727AVT',cnopts=cnopts) as sftp:
+	with pysftp.Connection(host='%%% SERVER DNS OR IP HERE %%%',username='root',password='%%% PASSWORD HERE %%%',cnopts=cnopts) as sftp:
 		sftp.get('/root/.pm2/logs/app-out.log')
 		if os.path.isfile('server2.log'):
 			os.remove('server2.log')
@@ -170,7 +170,7 @@ ax.set_yticklabels(server1.keys())
 ax.grid(True)
 ax.set_xlabel('Stream Active')
 ax.set_ylabel('Stream Key')
-ax.title.set_text('Server: parkland.phxcdn.com')
+ax.title.set_text('Server: %%% SERVER DNS OR IP HERE %%%')
 plt.gcf().autofmt_xdate()
 
 ##########################################################
@@ -251,7 +251,7 @@ ax1.set_yticklabels(server2.keys())
 ax1.grid(True)
 ax1.set_xlabel('Stream Active')
 ax1.set_ylabel('Stream Key')
-ax1.title.set_text('Server: parkland2.phxcdn.com')
+ax1.title.set_text('Server: %%% SERVER DNS OR IP HERE %%%')
 
 plt.gcf().autofmt_xdate()
 plt.show()
